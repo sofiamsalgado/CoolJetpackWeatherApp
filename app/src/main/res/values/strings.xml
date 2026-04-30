@@ -11,4 +11,9 @@
     <string name="precipitation_probability">Precipitation Probability</string>
     <string name="time">Time</string>
     <string name="update_weather">Update Weather</string>
+    <string name="save_location">+ Save</string>
+    <string name="cancel">Cancel</string>
+    <string name="save">Save</string>
+    <string name="location_name">Location name</string>
+    <string name="name">Name</string>
 </resources>

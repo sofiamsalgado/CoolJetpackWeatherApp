@@ -5,7 +5,8 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class WeatherData(
     val current_weather: CurrentWeather,
-    val hourly: HourlyData
+    val hourly: HourlyData,
+    val daily: Daily
 )
 
 @Serializable
@@ -23,9 +24,15 @@ data class HourlyData(
     val weathercode: List<Int>,
     val pressure_msl: List<Float>,
     val windspeed_10m: List<Float>,
-    // parametros novos que escolhi adicionar
-    val relativehumidity_2m: List<Int>,      // Humidade relativa (%)
-    val precipitation_probability: List<Int>  // Probabilidade de precipitação (%)
+    // parametros novos que decidi adicionar
+    val relativehumidity_2m: List<Int>,
+    val precipitation_probability: List<Int>
+)
+
+@Serializable
+data class Daily(
+    val sunrise: List<String>,
+    val sunset: List<String>
 )
 
 enum class WMO_WeatherCode(var code: Int, var image: String) {
@@ -61,8 +68,8 @@ enum class WMO_WeatherCode(var code: Int, var image: String) {
 
 fun getWeatherCodeMap(): Map<Int, WMO_WeatherCode> {
     val weatherMap = HashMap<Int, WMO_WeatherCode>()
-    WMO_WeatherCode.values().forEach {
-        weatherMap.put(it.code, it)
+    WMO_WeatherCode.entries.forEach {
+        weatherMap[it.code] = it
     }
     return weatherMap
 }

@@ -19,9 +19,9 @@ fun WeatherCard(
     humidity: Int,
     precipitationProbability: Int,
     time: String,
-    modifier: Modifier = Modifier.fillMaxWidth()
+    modifier: Modifier = Modifier
 ) {
-    Card(modifier = modifier) {
+    Card(modifier = modifier.fillMaxWidth()) {
         Column(modifier = Modifier.padding(16.dp)) {
             WeatherRow(stringResource(R.string.sea_level_pressure), "$seaLevelPressure hPa")
             WeatherRow(stringResource(R.string.wind_direction), "$windDirection°")
